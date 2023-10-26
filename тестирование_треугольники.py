@@ -6,16 +6,14 @@ def check_triangle():
     y = int(entry2.get())
     z = int(entry3.get())
 
-    if x != 0 and y != 0 and z !=0:
-        result_label.config(text="Треугольника c данными значениями не существует, попробуйте другие значения.")
-        if x == y == z:
-            result_label.config(text="Данный треугольник - равносторонний")
-        if x < y + z or y < x + z or z < x + y:
-            result_label.config(text="Треугольника с данными значениями не существует, попробуйте другие значения.")
-        if x == y or y == z or x == z:
-            result_label.config(text="Данный треугольник - равнобедренный")
-        else:
-            result_label.config(text="Данный треугольник - разносторонний")
+    if x + y <= z or (x == 0 and y == 0 and z == 0) or (x == 1 and y == 1 and z == 1):
+        result_label.config(text="Такого треугольника не существует")
+    elif x > 1 and y > 1 and z > 1 and x == y and y == z and x + y > z:
+        result_label.config(text="Равносторонний треугольник")
+    elif x > 1 and y > 1 and z > 1 and x + y > z:
+        result_label.config(text="Разносторонний треугольник")
+    elif (x > 1 and y > 1 and z > 1) and (x == y and x != z or x == z and x != y or y == z and y != x):
+        result_label.config(text="Равнобедренный треугольник")
     else:
         result_label.config(text="Треугольника с данными значениями не существует, попробуйте другие значения.")
 def is_valid(newval):
