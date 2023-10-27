@@ -16,8 +16,6 @@ def check_triangle():
         result_label.config(text="Данный треугольник - равнобедренный.")
     else:
         result_label.config(text="Треугольника с данными значениями не существует, попробуйте другие значения.")
-def is_valid(newval):
-    return re.match("^\d{0,4}$", newval) is not None
 
 
 window = Tk()
@@ -25,7 +23,7 @@ window.title("treygolnik")
 window.geometry('550x340')
 window['bg'] = '#D8BFD8'
 
-check = (window.register(is_valid), "%P")
+check = (window.register, "%P")
 
 label = Label(window, text="Введите длины сторон треугольника", font="Times 18", bg='#D8BFD8', fg="Indigo")
 label.pack()
